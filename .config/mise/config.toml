@@ -1,0 +1,56 @@
+[dotfiles]
+"~/.bashrc" = {}
+
+[bootstrap.packages]
+"pacman:xorg-xhost" = "latest"
+"pacman:vim" = "latest"
+"pacman:gparted" = "latest"
+"pacman:mc" = "latest"
+"pacman:glxinfo" = "latest"
+"pacman:telegram-desktop" = "latest"
+"pacman:unrar" = "latest"
+"pacman:wget" = "latest"
+"pacman:net-tools" = "latest"
+"pacman:rawtherapee" = "latest"
+"pacman:gimp" = "latest"
+"pacman:geeqie" = "latest"
+"pacman:linux-headers" = "latest"
+"pacman:linux-lts-headers" = "latest"
+"pacman:arduino" = "latest"
+"pacman:flameshot" = "latest"
+"pacman:syncthing" = "latest"
+"pacman:pipewire-pulse" = "latest"
+"pacman:pipewire-alsa" = "latest"
+"pacman:fish" = "latest"
+"pacman:ncdu" = "latest"
+"pacman:vlc" = "latest"
+"pacman:vlc-plugins-all" = "latest"
+"pacman:kitty" = "latest"
+"pacman:foot" = "latest"
+"pacman:ffmpeg" = "latest"
+"pacman:stellarium" = "latest"
+"pacman:kstars" = "latest"
+"pacman:prusa-slicer" = "latest"
+"pacman:timeshift" = "latest"
+"pacman:platformio-core" = "latest"
+"pacman:github-cli" = "latest"
+"aur:google-chrome" = "latest"
+"aur:visual-studio-code-bin" = "latest"
+"aur:freecad-appimage" = "latest"
+"aur:realvnc-vnc-viewer-7" = "latest"
+"aur:auto-cpufreq" = "latest"
+"aur:llama.cpp-cuda-git" = "latest"
+"aur:zfs-dkms" = "latest"
+"aur:zfs-utils" = "latest"
+"aur:mergerfs" = "latest"
+
+[tools]
+pi = "latest"
+oh-my-pi = "latest"
+
+[tasks.bootstrap]
+run = """
+sudo mkdir -p /ssd /data
+systemctl --user restart pipewire
+xhost +si:localuser:root
+"""
