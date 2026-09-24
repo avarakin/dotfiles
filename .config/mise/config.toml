@@ -1,5 +1,11 @@
 [dotfiles]
 "~/.bashrc" = {}
+"~/.config/mise/yay.sh" = {}
+"~/.config/mise/config.toml" = {}
+"~/.config/hypr/hyprland.lua" = {}
+"~/.config/systemd/user/dms.service.d/override.conf" = {}
+
+
 
 [bootstrap.packages]
 "pacman:xorg-xhost" = "latest"
