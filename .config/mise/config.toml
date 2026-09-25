@@ -1,13 +1,33 @@
 [dotfiles]
 "~/.bashrc" = {}
-"~/.config/mise/yay.sh" = {}
-"~/.config/mise/config.toml" = {}
+"~/.config/foot/foot.ini" = {}
+"~/.config/ghostty/config" = {}
 "~/.config/hypr/hyprland.lua" = {}
+"~/.config/kitty/kitty.conf" = {}
+"~/.config/mise/config.toml" = {}
+"~/.config/mise/yay.sh" = {}
 "~/.config/systemd/user/dms.service.d/override.conf" = {}
 
 
 
 [bootstrap.packages]
+"pacman:hyprland" = "latest"
+"pacman:dms-shell" = "latest"
+"pacman:quickshell" = "latest"
+"pacman:ghostty" = "latest"
+"pacman:greetd" = "latest"
+"pacman:greetd-dms-greeter-bin" = "latest"
+"pacman:greetd-dms-greeter-bin-debug" = "latest"
+"pacman:matugen" = "latest"
+"pacman:xdg-desktop-portal-gtk" = "latest"
+"pacman:nvidia-open" = "latest"
+"pacman:mise" = "latest"
+"pacman:mesa-utils" = "latest"
+"pacman:jq" = "latest"
+"pacman:alacritty" = "latest"
+"pacman:arduino-cli" = "latest"
+"pacman:freecad" = "latest"
+"pacman:dgop" = "latest"
 "pacman:xorg-xhost" = "latest"
 "pacman:vim" = "latest"
 "pacman:gparted" = "latest"
@@ -22,7 +42,6 @@
 "pacman:geeqie" = "latest"
 "pacman:linux-headers" = "latest"
 "pacman:linux-lts-headers" = "latest"
-"pacman:arduino" = "latest"
 "pacman:flameshot" = "latest"
 "pacman:syncthing" = "latest"
 "pacman:pipewire-pulse" = "latest"
@@ -40,6 +59,8 @@
 "pacman:timeshift" = "latest"
 "pacman:platformio-core" = "latest"
 "pacman:github-cli" = "latest"
+"pacman:ttf-jetbrains-mono-nerd" = "latest"
+"pacman:fastfetch" = "latest"
 "aur:google-chrome" = "latest"
 "aur:visual-studio-code-bin" = "latest"
 "aur:freecad-appimage" = "latest"
@@ -53,6 +74,29 @@
 [tools]
 pi = "latest"
 oh-my-pi = "latest"
+
+
+[tasks.nvidia]
+run="""
+echo "options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/tmp" | sudo tee /etc/modprobe.d/nvidia-power-management.conf 
+sudo systemctl enable --now nvidia-suspend.service
+sudo systemctl enable --now nvidia-hibernate.service
+sudo systemctl status nvidia-suspend.service
+sudo systemctl status nvidia-hibernate.service
+"""
+
+[tasks.zfs]
+run="""
+sudo pacman -S --noconfirm --needed linux-headers
+yay -S --noconfirm --needed zfs-dkms zfs-utils
+sudo zpool import data1
+sudo zpool set cachefile=/etc/zfs/zpool.cache data1
+sudo systemctl enable --now zfs-scrub-weekly@zroot.timer
+sudo systemctl enable --now zfs.target
+sudo systemctl enable --now zfs-import.target
+sudo systemctl enable --now zfs-import-cache
+sudo systemctl enable --now zfs-mount
+"""
 
 [tasks.bootstrap]
 run = """

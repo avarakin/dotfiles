@@ -25,3 +25,5 @@ PROMPT_COMMAND="history -a${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
 HISTCONTROL=ignoredups:erasedups
 HISTTIMEFORMAT='%F %T '
 eval "$(mise activate bash)"
+
+fastfetch
