@@ -7,6 +7,8 @@
 # alias p='python'
 #
 
+export PATH="$HOME/scripts:$PATH"
+
 export LLAMA_CPP_BASE_URL=http://ws:8080
 
 

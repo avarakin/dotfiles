@@ -96,7 +96,7 @@ hl.bind("mouse:276", hl.dsp.window.fullscreen({ mode = "maximized", action = "to
 hl.bind("mouse:275", hl.dsp.window.close())
 hl.bind("SUPER + U", hl.dsp.exec_cmd("systemctl suspend"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("alacritty -e llama-server --models-preset ~/ai/models/preset.ini --models-dir ~/ai/models --models-max 1 --jinja --host 0.0.0.0 -ngl 999"))
-hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("foot"))
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
 
 hl.config({
     input = {
