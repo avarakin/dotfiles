@@ -1,5 +1,7 @@
 [dotfiles]
 "~/.bashrc" = {}
+"~/.config/DankMaterialShell/plugin_settings.json" = {}
+"~/.config/DankMaterialShell/settings.json" = {}
 "~/.config/foot/foot.ini" = {}
 "~/.config/ghostty/config" = {}
 "~/.config/hypr/hyprland.lua" = {}
@@ -7,6 +9,11 @@
 "~/.config/mise/config.toml" = {}
 "~/.config/mise/yay.sh" = {}
 "~/.config/systemd/user/dms.service.d/override.conf" = {}
+"~/.emacs" = {}
+"~/.pi/agent/AGENTS.md" = {}
+"~/.pi/agent/extensions" = {}
+"~/.pi/agent/settings.json" = {}
+"~/scripts" = {}
 
 
 
@@ -74,6 +81,8 @@
 [tools]
 pi = "latest"
 oh-my-pi = "latest"
+node = "latest"
+bun = "latest"
 
 
 [tasks.nvidia]
